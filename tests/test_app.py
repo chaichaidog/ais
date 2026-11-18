@@ -29,7 +29,7 @@ def test_posts_and_lookup(client):
     assert response.status_code == 200
     assert len(response.json['posts']) == 3
     assert '森林訊號中斷紀錄' in [item['title'] for item in response.json['posts']]
-    assert '偽人' in client.get('/api/posts/signal-lost').json['post']['content']
+    assert '儀式' in client.get('/api/posts/signal-lost').json['post']['content']
     assert client.get('/api/posts/first-record').status_code == 200
     assert client.get('/api/posts/not-real').status_code == 404
 
