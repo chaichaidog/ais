@@ -7,10 +7,10 @@
   const state = { posts: [], filter: 'all', query: '', scareTimeout: null };
 
   const projects = {
-    project1: { ref: 'PROJECT_001 / ACTIVE', title: '個人 Blog 檔案庫', date: 'WEB PROJECT', body: '你目前看到的網站。\n\n前端：HTML / CSS / JavaScript。\n後端：Flask / SQLAlchemy。\n功能：Blog、作品介紹、解謎、隱藏彩蛋、文章管理。' },
-    project2: { ref: 'PROJECT_002 / SAMPLE', title: '自動化小工具', date: 'PLACEHOLDER', body: '這張卡片目前是示範內容。之後可以填入實際的 Python 專題與 GitHub 網址。' },
-    project3: { ref: 'PROJECT_003 / SAMPLE', title: '互動學習遊戲', date: 'PLACEHOLDER', body: '這張卡片目前是示範內容。之後可以放上你的網頁遊戲與介紹。' },
-    secret: { ref: 'REDACTED_000 / RESTRICTED', date: 'DATE LOST', title: '同步失敗：第零號檔案', body: '[斷訊]\n\n第零號檔案曾經存在。\n\n錄影機在凌晨時刻故障。最後留下來的兩個片段，藏在「生活」與「技術」日誌。\n\n不要相信每一個顯示正常的狀態。', warning: 'ACCESS LOG: OBSERVER DETECTED' }
+    project1: { ref: 'PROJECT_001 / STUDENT WORK', title: '《歸來者》互動 Blog', date: '作者：暄、阿卉', body: '這部偽紀錄片式互動 Blog 由暄與阿卉共同創作。\n\n故事中的 Blog 記錄者與學生作者不是同一人。\n\n網站包含虛構日誌、森林失蹤事件、解謎和驚嚇彩蛋。' },
+    project2: { ref: 'CASE_002 / FOREST', title: '森林失蹤事件', date: 'STATUS: UNRESOLVED', body: '有人讀小說讀得太入迷，深信森林裡的獻祭儀式是真實的。\n\n他企圖把同行的人當成祭品，於是兩人一起走進森林。\n\n儀式沒有完成，樹林裡卻先出現了兩個不自然的人影。\n\n數日後，兩人回來了。' },
+    project3: { ref: 'CASE_003 / THE RETURNED', title: '回來的兩個人', date: 'IDENTITY: UNVERIFIED', body: '兩人回來後臉上總帶著僵硬的表情。\n\n他們逐漸忘記原本的習慣，回答問題時也像是在背誦別人的人生。\n\n最後的影像暗示：兩名真正的人類在森林中遭遇偽人，已被取代。' },
+    secret: { ref: 'REDACTED_000 / RESTRICTED', date: 'DATE LOST', title: '第零號檔案：模仿紀錄', body: '[森林訊號中斷]\n\n兩名入侵者已進入觀測範圍。\n\n原有身分資訊讀取中。\n\n行為模仿尚未完成，請使用日誌中的時間 04 和最後一格影像 17 修復紀錄。\n\n不要在他們面前問起從前。', warning: 'REPLACEMENT STATUS: INCOMPLETE' }
   };
 
   function openFile(item) {
@@ -96,10 +96,10 @@
   const status = $('#statusSignal');
   const glitch = $('#glitchMessage');
   const anomalyTexts = [
-    'CAM_02: NO OPERATOR DETECTED',
-    'RECORDING CONTINUES WHILE CAMERA IS OFF',
-    'UNLISTED SIGNAL: SOMEONE ELSE IS HERE',
-    'ERROR: OBSERVER COUNT MISMATCH'
+    'CAM_02: TWO FIGURES RETURNED',
+    'FOREST RECORD: SIGNAL INTERRUPTED',
+    'UNLISTED SIGNAL: IDENTITIES DO NOT MATCH',
+    'ERROR: ORIGINAL SUBJECTS NOT FOUND'
   ];
   let anomalyIndex = 0;
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
