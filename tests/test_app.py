@@ -19,6 +19,8 @@ def client(tmp_path):
 def test_home_and_health(client):
     assert client.get('/').status_code == 200
     assert '異常檔案'.encode() in client.get('/').data
+    assert '暄、阿卉'.encode() in client.get('/').data
+    assert '歸來者'.encode() in client.get('/').data
     assert client.get('/health').json == {'status': 'ok'}
 
 
@@ -26,6 +28,8 @@ def test_posts_and_lookup(client):
     response = client.get('/api/posts')
     assert response.status_code == 200
     assert len(response.json['posts']) == 3
+    assert '森林訊號中斷紀錄' in [item['title'] for item in response.json['posts']]
+    assert '偽人' in client.get('/api/posts/signal-lost').json['post']['content']
     assert client.get('/api/posts/first-record').status_code == 200
     assert client.get('/api/posts/not-real').status_code == 404
 
