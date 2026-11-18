@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>編輯文章 — ARCHIVE_001</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}"></head><body class="admin-site"><main class="admin-wrap wide"><div class="section-index">EDITOR / ARCHIVE_001</div><h1>{% if post_id %}編輯文章{% else %}新增文章{% endif %}</h1>
+{% for category, message in get_flashed_messages(with_categories=true) %}<div class="notice {{ category }}">{{ message }}</div>{% endfor %}
+<form class="edit-form" method="post"><input type="hidden" name="csrf" value="{{ csrf }}">
+<label for="title">文章標題</label><input id="title" name="title" maxlength="160" required value="{{ article.title }}">
+<label for="slug">網址識別碼（小寫英文、數字、-）</label><input id="slug" name="slug" maxlength="90" pattern="[a-z0-9][a-z0-9-]{1,89}" required value="{{ article.slug }}">
+<div class="edit-columns"><div><label for="category">分類</label><select id="category" name="category">{% for cat in ['生活','技術','隨筆'] %}<option value="{{ cat }}" {% if article.category == cat %}selected{% endif %}>{{ cat }}</option>{% endfor %}</select></div><div><label for="created_at">日期</label><input id="created_at" name="created_at" type="date" value="{{ article.created_at }}" required></div></div>
+<label for="excerpt">摘要</label><textarea id="excerpt" name="excerpt" maxlength="280" rows="3">{{ article.excerpt }}</textarea>
+<label for="content">內文（可換行；以純文字安全顯示）</label><textarea id="content" name="content" rows="16" maxlength="20000" required>{{ article.content }}</textarea>
+<label class="check-label"><input type="checkbox" name="published" {% if article.published %}checked{% endif %}>公開文章</label>
+<div class="admin-tools"><button type="submit" class="btn btn-primary">儲存文章</button><a class="btn" href="{{ url_for('admin_dashboard') }}">取消</a></div></form>
+</main></body></html>

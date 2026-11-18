@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="以類比恐怖與神祕檔案形式呈現的個人部落格、作品集及解謎遊戲。" />
+  <title>ARCHIVE_001 — 遺失的訊號</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div><div class="noise" aria-hidden="true"></div>
+  <div class="shell">
+    <div class="topline">
+      <div class="rec">REC <span class="slash-muted">/</span> PRIVATE ARCHIVE SYSTEM</div>
+      <div class="top-status"><span class="hide-small">STATUS: <span class="status-signal" id="statusSignal">CONNECTED</span></span><button class="noise-btn" id="visualToggle" aria-pressed="true">SCANLINES: ON</button></div>
+    </div>
+    <header class="header">
+      <a class="wordmark" href="#top" aria-label="返回網站首頁"><span class="mark" aria-hidden="true">A</span><span><strong>ARCHIVE_001</strong><small>UNLISTED PERSONAL RECORDS</small></span></a>
+      <nav class="nav" aria-label="主選單"><a class="nav-active" href="#top">首頁 / HOME</a><a href="#about">關於 / ABOUT</a><a href="#logs">紀錄 / LOGS</a><a href="#projects">作品 / WORKS</a><a href="#puzzle">異常 / ???</a></nav>
+    </header>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+        <div class="hero-copy">
+          <div class="eyebrow"><span>●</span> SIGNAL FOUND / 訊號已恢復</div>
+          <h1 id="hero-title">每個人的生活，<br /><span class="subtle">都留下了訊號。</span></h1>
+          <p class="hero-lead">這裡收錄一位記錄者的日常、學習與創作。<br />多數檔案都能正常閱讀。<br />至於其他的……我們還沒確認。</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#logs">▷　開啟紀錄檔</a><a class="btn" href="#about">檢視記錄者資料 ↗</a></div>
+          <p class="glitch-sub" id="glitchMessage" aria-live="off">[無法辨識的頻道仍在接收訊號]</p><div class="hero-note">TAPE 001 / 此頁面的異常紀錄皆為虛構；請放心探索。</div>
+        </div>
+        <div class="visual" role="img" aria-label="模擬 VHS 攝影畫面：深夜森林、模糊的月光和道路">
+          <div class="moon"></div><div class="treeline"></div><div class="road"></div><div class="visual-noise"></div><div class="crosshair"></div>
+          <div class="feed-top"><span>CAM_01</span><span>● STANDBY</span></div>
+          <div class="tape-stamp">UNKNOWN LOCATION<br/>UNLISTED LOCATION</div>
+          <div class="feed-bottom"><span>SP / 00:00:18</span><span>CH_01 — 4:3</span></div>
+        </div>
+      </section>
+      <div class="ticker"><span>▣ PERSONAL RECORDS　/　3 PROJECTS INDEXED</span><span class="hide-small">CAUTION: SOME FOOTAGE IS UNEXPLAINED</span><span><em>●</em> AUDIO OFF</span></div>
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="section-bar"><div><div class="section-index">01 / IDENTIFICATION</div><h2 id="about-title">記錄者檔案</h2></div><div class="section-aside">PERSONAL PROFILE // ACCESS GRANTED</div></div>
+        <div class="about-grid">
+          <div class="about-panel"><h3>你好，我是這個檔案庫的記錄者。</h3><p>這裡記錄我的日常、程式學習與做過的小作品。我喜歡把新點子寫成可以操作的程式。</p><p>大部分內容都是真的學習紀錄。至於那些出現在凌晨的陌生訊號，就當作網站裡的故事吧。</p><div class="small">※ 目前為匿名示範介紹，正式資料可在這裡替換。</div></div>
+          <div class="info-panel"><div class="info-row"><span class="key">SUBJECT</span><span class="value">ARCHIVE_KEEPER</span></div><div class="info-row"><span class="key">INTERESTS</span><span class="value">程式開發 / 網頁 / 創作</span></div><div class="info-row"><span class="key">CURRENT</span><span class="value">持續學習中</span></div><div class="info-row"><span class="key">STATUS</span><span class="value">● UNKNOWN</span></div></div>
+        </div>
+      </section>
+      <section class="section" id="logs" aria-labelledby="logs-title">
+        <div class="section-bar"><div><div class="section-index">02 / PERSONAL LOGS</div><h2 id="logs-title">近期紀錄</h2></div><div class="section-aside">SORTED BY MOST RECENT</div></div>
+        <div class="filters" aria-label="文章分類與搜尋"><button class="filter active" data-filter="all" aria-pressed="true">全部 / ALL</button><button class="filter" data-filter="生活" aria-pressed="false">生活</button><button class="filter" data-filter="技術" aria-pressed="false">技術</button><button class="filter" data-filter="隨筆" aria-pressed="false">隨筆</button><input class="search" id="search" type="search" aria-label="搜尋文章" placeholder="SEARCH LOGS..." /></div>
+        <div class="entry-list" id="entryList"><p class="muted-small">讀取資料庫中...</p></div><p class="empty" id="empty">NO MATCHING RECORDS / 沒有符合條件的紀錄。</p>
+      </section>
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-bar"><div><div class="section-index">03 / PROJECT ARCHIVE</div><h2 id="projects-title">作品存檔</h2></div><div class="section-aside">RECOVERED FILES: 03</div></div>
+        <div class="project-grid">
+          <button class="project" data-id="project1"><span class="file-no">PROJECT_001 / ACTIVE</span><h3>個人 Blog 檔案庫</h3><p>把日常文字與類比恐怖美術結合的互動式網站。</p><span class="meta">HTML · CSS · JAVASCRIPT　↗</span></button>
+          <button class="project" data-id="project2"><span class="file-no">PROJECT_002 / SAMPLE</span><h3>自動化小工具</h3><p>用程式整理重複的小事，讓電腦代替我們做無聊的工作。</p><span class="meta">PYTHON · TOOLS　↗</span></button>
+          <button class="project" data-id="project3"><span class="file-no">PROJECT_003 / SAMPLE</span><h3>互動學習遊戲</h3><p>用簡單的遊戲機制，把程式邏輯變得更容易理解。</p><span class="meta">WEB · GAME　↗</span></button>
+        </div>
+      </section>
+
+      <section class="section" id="puzzle" aria-labelledby="puzzle-title">
+        <div class="section-bar"><div><div class="section-index">04 / UNAUTHORIZED SIGNAL</div><h2 id="puzzle-title">異常檔案：最後一段錄影</h2></div><div class="section-aside">SECURITY LEVEL: RESTRICTED</div></div>
+        <div class="puzzle-grid">
+          <div class="puzzle-box">
+            <div class="eyebrow"><span>●</span> INPUT REQUIRED / ACCESS DENIED</div>
+            <h3>有人在等你輸入正確的時間。</h3>
+            <p>尋找日誌裡兩段無法解釋的時間碎片。把它們依順序接在一起，組成四位數字。</p>
+            <form class="puzzle-form" id="puzzleForm" autocomplete="off">
+              <label for="puzzleCode" class="sr-only">四位數的檔案密碼</label>
+              <input class="puzzle-code" id="puzzleCode" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="••••" aria-describedby="puzzleFeedback" required />
+              <button type="submit" class="btn btn-primary" id="puzzleSubmit">解鎖封存檔案 →</button>
+            </form>
+            <div id="puzzleFeedback" class="feedback" aria-live="polite">SYSTEM READY / 等待輸入</div>
+            <label class="setting-toggle"><input id="scareEnabled" type="checkbox" checked />啟用解鎖成功後的突發驚嚇</label>
+            <div class="warning-banner">內容提醒：解謎成功可能突然顯示恐怖面孔（無血腥、無閃光、無聲音）。你可以先關閉驚嚇選項。</div>
+            <div id="revealPanel" class="reveal-panel" aria-live="polite"><h3>ARCHIVE UNLOCKED / 已解鎖</h3><p>這段紀錄原本應該只有一位觀察者。現在，計數顯示為二。</p><p>你已完成解謎。歡迎來到檔案的另一面。</p></div>
+          </div>
+          <div class="puzzle-notes">
+            <h3>RECOVERED NOTES / 解謎提示</h3>
+            <p>01 / 凌晨有一段影像開始失真。那個時刻藏在一篇生活紀錄中。</p>
+            <p>02 / 某個程式畫面停在固定格數，再也沒能往前。</p>
+            <p>03 / 請依照 01 → 02 的順序組合。少掉的數字要補零。</p>
+            <p class="muted-small">若一直找不到線索，或許可以檢查頁面底部的同步時間。</p>
+          </div>
+        </div>
+      </section>
+      <aside class="outro"><div><div class="section-index">SYSTEM MESSAGE / 014</div><strong>你已抵達目前公開的檔案末端。</strong><p>如果遇到無法解釋的東西，請先確認這是否真的是錯誤。</p></div><a class="btn" href="#top">↑　回到起始畫面</a></aside>
+    </main>
+    <footer class="foot"><span>© ARCHIVE_001 / PERSONAL ARCHIVE</span><span>HORROR ELEMENTS ARE FICTIONAL · <a href="/admin">ADMIN</a></span><span>LAST SYNC: <button id="secretClock" class="secret-clock" aria-label="檔案同步時間，點擊可顯示線索">00:??:??</button></span></footer>
+  </div>
+  <div id="scareLayer" aria-hidden="true" role="presentation"><img src="{{ url_for('static', filename='assets/apparition.webp') }}" alt="" /><button type="button" class="scare-close" id="scareClose">關閉畫面 ×</button></div>
+  <dialog id="fileDialog" aria-labelledby="modalTitle"><div class="modal-head"><span id="modalRef">RECORD FILE</span><button class="modal-close" id="closeDialog" aria-label="關閉檔案">×</button></div><div class="modal-content"><div class="modal-date" id="modalDate"></div><h2 id="modalTitle"></h2><p id="modalBody"></p><div class="modal-warning" id="modalWarning">END OF RECORD // FILE CLOSED</div></div></dialog>
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
