@@ -45,19 +45,19 @@ site_meta = Table(
 
 SEED_POSTS = [
     {
-        "slug": "first-record", "title": "為什麼想做這個網站？", "category": "隨筆",
-        "excerpt": "想收藏一些想法、學習歷程，以及那些差點被遺忘的片段。",
-        "content": "這是一個普通的個人 Blog。至少，我一開始是這麼打算的。\n\n我喜歡把想法變成實際的作品，也喜歡記錄學習程式的過程。這裡會放一些日常、心得和作品。\n\n如果你看見文章中不合理的時間，請不要急著修正。", "created_at": "2026-11-01", "published": True
+        "slug": "first-record", "title": "最近讀到的一本小說", "category": "隨筆",
+        "excerpt": "有個朋友把書裡的傳說當真了。原本以為只是開玩笑。",
+        "content": "這裡本來只是普通的個人 Blog，記錄閱讀、生活和一些小作品。\n\n朋友最近迷上一部講森林儀式的小說。他說，故事裡有人可以透過獻祭換取想要的東西。\n\n他開始認真研究那片森林，還問過我願不願意一起去。當時我以為，他只是看小說看得太入迷。\n\n奇怪的是，我現在完全想不起來，是誰先提出要出發的。", "created_at": "2026-11-01", "published": True
     },
     {
-        "slug": "signal-lost", "title": "凌晨四點的訊號", "category": "生活",
-        "excerpt": "有人說，所有異常都只是設備老舊造成的。",
-        "content": "凌晨四點，螢幕忽然出現一段不屬於我的影像。\n\n我原以為那只是瀏覽器卡住，直到畫面裡的房間開始慢慢變得熟悉。\n\n備註：系統顯示的時間可能不是現在。第一段時間是 04。", "created_at": "2026-11-12", "published": True
+        "slug": "signal-lost", "title": "森林訊號中斷紀錄", "category": "生活",
+        "excerpt": "兩個人走進森林之後，手機只留下不完整的時間戳。",
+        "content": "我們真的去了那片森林。帶路的人一直說，小說裡的地點就在前面。\n\n那個人原本打算拿同行者作為儀式的祭品。但儀式還沒開始，樹後就出現了兩個站姿很奇怪的人影。\n\n錄影在凌晨四點失去訊號。時間戳只剩下 04。\n\n幾天後，我們兩個都回家了。他們說我的表情變得很僵硬，連說話的習慣也不一樣。\n\n我不記得森林裡發生過什麼。至少，這是我一直告訴大家的。", "created_at": "2026-11-12", "published": True
     },
     {
-        "slug": "frame-seventeen", "title": "把一個想法寫成程式", "category": "技術",
-        "excerpt": "從空白檔案到第一次成功執行，這些過程值得留下。",
-        "content": "今天寫了幾個功能，也修掉了原本以為無法解決的錯誤。\n\n寫程式讓我喜歡的地方，就是可以慢慢讓腦中的想法變成看得見的成果。\n\n只是預覽影像每次都停在第十七格。第 17 格以後，明明還有資料。\n\n備註：如果需要第二段時間，也許可以試試 17。", "created_at": "2026-11-18", "published": True
+        "slug": "frame-seventeen", "title": "歸來之後的第十七格", "category": "技術",
+        "excerpt": "影像修復停在第 17 格。原本熟悉的行為，突然都變得陌生。",
+        "content": "我試著修復進入森林那天的錄影。\n\n前十六格只有樹木和兩個人的背影。第十七格出現兩個一模一樣的身影，下一秒影片就結束了。最後保留下來的格數是 17。\n\n回來之後，我們都被問過以前的習慣：慣用手、口頭禪、喜歡的食物。奇怪的是，我們總會答錯那些原本很簡單的問題。\n\n有人說，真正走進森林的兩個人，根本沒有回來。\n\n如果這些紀錄是真的，那麼現在坐在電腦前寫字的，又是誰？", "created_at": "2026-11-18", "published": True
     },
 ]
 
@@ -189,7 +189,7 @@ def create_app(test_config: dict | None = None) -> Flask:
             return jsonify(success=False, message="密碼需要四位數字。"), 400
         if not hmac.compare_digest(answer, str(app.config["PUZZLE_ANSWER"])):
             return jsonify(success=False, message="存取遭拒。錄影時間不正確。"), 200
-        return jsonify(success=True, message="檔案解鎖成功。有人正在看著你。")
+        return jsonify(success=True, message="檔案解鎖成功。取代紀錄已恢復。")
 
     @app.route("/admin", methods=["GET", "POST"])
     def admin_login():
