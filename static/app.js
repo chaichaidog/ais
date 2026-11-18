@@ -9,7 +9,7 @@
   const projects = {
     project1: { ref: 'PROJECT_001 / STUDENT WORK', title: '《歸來者》互動 Blog', date: '作者：暄、阿卉', body: '這部偽紀錄片式互動 Blog 由暄與阿卉共同創作。\n\n故事中的 Blog 記錄者與學生作者不是同一人。\n\n網站包含虛構日誌、森林失蹤事件、解謎和驚嚇彩蛋。' },
     project2: { ref: 'CASE_002 / FOREST', title: '森林失蹤事件', date: 'STATUS: UNRESOLVED', body: '有人讀小說讀得太入迷，深信森林裡的獻祭儀式是真實的。\n\n他企圖把同行的人當成祭品，於是兩人一起走進森林。\n\n儀式沒有完成，樹林裡卻先出現了兩個不自然的人影。\n\n數日後，兩人回來了。' },
-    project3: { ref: 'CASE_003 / THE RETURNED', title: '回來的兩個人', date: 'IDENTITY: UNVERIFIED', body: '兩人回來後臉上總帶著僵硬的表情。\n\n他們逐漸忘記原本的習慣，回答問題時也像是在背誦別人的人生。\n\n最後的影像暗示：兩名真正的人類在森林中遭遇偽人，已被取代。' },
+    project3: { ref: 'CASE_003 / THE RETURNED', title: '回來的兩個人', date: 'IDENTITY: UNVERIFIED', body: '兩人回來後臉上總帶著僵硬的表情。\n\n他們逐漸忘記原本的習慣，回答問題時也像是在背誦別人的人生。\n\n最後的影像暗示：兩名真正的人類在森林中遭偽人吞噬，之後被偽人取代。' },
     secret: { ref: 'REDACTED_000 / RESTRICTED', date: 'DATE LOST', title: '第零號檔案：模仿紀錄', body: '[森林訊號中斷]\n\n兩名入侵者已進入觀測範圍。\n\n原有身分資訊讀取中。\n\n行為模仿尚未完成，請使用日誌中的時間 04 和最後一格影像 17 修復紀錄。\n\n不要在他們面前問起從前。', warning: 'REPLACEMENT STATUS: INCOMPLETE' }
   };
 
