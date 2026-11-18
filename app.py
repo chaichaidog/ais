@@ -101,6 +101,26 @@ def create_app(test_config: dict | None = None) -> Flask:
             if connection.execute(select(posts.c.id).limit(1)).first() is None:
                 connection.execute(insert(posts), SEED_POSTS)
             connection.execute(insert(site_meta).values(key="initialized", value="yes"))
+        # Upgrade only untouched, original demo entries in existing databases.
+        # User-edited posts retain their titles/content and are never overwritten.
+        old_demo_titles = {
+            "first-record": "為什麼想做這個網站？",
+            "signal-lost": "凌晨四點的訊號",
+            "frame-seventeen": "把一個想法寫成程式",
+        }
+        for entry in SEED_POSTS:
+            legacy_title = old_demo_titles.get(entry["slug"])
+            current = connection.execute(
+                select(posts.c.title).where(posts.c.slug == entry["slug"])
+            ).scalar()
+            if current == legacy_title:
+                connection.execute(
+                    update(posts).where(
+                        posts.c.slug == entry["slug"],
+                        posts.c.title == legacy_title,
+                    ).values(**{key: value for key, value in entry.items() if key != "slug"})
+                )
+
 
     # Process-local throttling is intentionally lightweight. For a busy production
     # service with multiple workers, switch to a shared rate-limiter (e.g. Redis).
